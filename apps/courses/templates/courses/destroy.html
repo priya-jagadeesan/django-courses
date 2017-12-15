@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delete a course</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'courses/css/main.css' %}">
+</head>
+<body>
+    <h3>Are you sure you want to delete the following course?</h3>
+    <div class="delCourse">
+        <b>Name:</b> {{ course.name }}
+        <br>
+        <b>Description:</b> {{ course.description.content}}
+        <br>
+        <form action="/" method="post" id="no">
+            {% csrf_token %}
+        <button id="no_btn">No</button>
+        </form>
+        <form action="/courses/destroyID/{{ course.id }}" method="post" id="yes">
+            {% csrf_token %}
+        <button id="del_btn">Yes! I want to delete this</button>
+        </form>
+    </div>
+</body>
+</html>

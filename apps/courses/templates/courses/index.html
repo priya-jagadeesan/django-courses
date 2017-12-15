@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a student to all bootcamp courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'courses/css/main.css' %}">
+</head>
+<body>
+    <h2>Add a new course</h2>
+    <div class="addCourse">
+        <form action="/courses/add" method="post">
+            {% csrf_token %}
+            Name: <input type="text" name="name">
+            {% if errors.name %}
+            <p class="err">{{ errors.name }}</p>
+            {% endif %}
+            <br>
+            Description:<textarea name="desc"></textarea>
+            {% if errors.desc %}
+            <p class="err">{{ errors.desc }}</p>
+            {% endif %}
+            <br>
+            <button id="add_btn">Add</button>
+        </form>
+    </div>
+    <h3>Courses</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Course name</th>
+                <th>Description</th>
+                <th>Date added</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.name }}</td>
+                <td>{{ course.description.content }}</td>
+                <td>{{ course.created_at }}</td>
+                <td>
+                    <a href="/courses/destroy/{{ course.id }}"> remove </a>
+                    <form action="/courses/comment/{{ course.id }}/show" method="post">
+                        {% csrf_token %}
+                        <button id='cmt_btn'>Comment</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

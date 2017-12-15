@@ -1,0 +1,142 @@
+*{
+    margin: 0px;
+    padding: 10px;
+}
+
+body{
+    margin: 20px;
+    padding: 20px;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+
+thead th:nth-child(1) {
+    width: 30%;
+}
+
+thead th:nth-child(2) {
+    width: 25%;
+}
+
+thead th:nth-child(3) {
+    width: 30%;
+}
+
+thead th:nth-child(4) {
+    width: 10%;
+}
+
+
+th, td {
+    padding: 5px;
+    text-align: center;
+    font-size: 1em;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #EEEEEE;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+thead {
+    background-color: #CCCCCC;
+}
+
+.err{
+    color: red;
+    font-size: 0.8em;
+    margin: 0px;
+    margin-left: 30px;
+}
+
+.addCourse,.delCourse,.commentCourse{
+    /* margin-left: 150px; */
+    border: 2px solid white;
+    height: 300px;
+    /* height: 250px; */
+    width: 35%;
+    padding: 10px;
+}
+
+input{
+    width: 80%;
+    margin: 10px;
+    /* width: 190px; */
+    height: 5px;
+    border: 2px solid black;
+}
+
+textarea{
+    width: 88%;
+    height: 60px;
+    padding: 2px;
+    border: 2px solid black;
+    resize: none;
+    overflow-y: scroll;
+    font-size: 0.8em;
+}
+
+#add_btn,#upd_btn,#del_btn,#post_btn{
+    height: 30px;
+    width: 90px;
+    margin-left: 150px;
+    background-color: lightseagreen;
+    font-weight: bold;
+    color: white;
+}
+
+#add_btn,#post_btn{
+    margin-left: 200px;
+    background-color: green;
+}
+
+#cmt_btn{
+    height: 20px;
+    width: 70px;
+    margin-left: 10px;
+    background-color: green;
+    color: white;
+    font-size: 0.6em;
+    text-align: center;
+    padding: 2px;
+}
+
+#del_btn{
+    background-color: maroon;
+    width: 190px;
+    height: 40px;
+}
+
+#no_btn{
+    background-color: gray;
+}
+
+#no{
+    display: inline
+}
+
+#yes{
+    display: inline-block
+}
+
+.posted_cmt{
+    border: 2px solid black;
+    height: auto;
+    width: 85%;
+    padding: 5px;
+}
+
+#cmt_from{
+    background-color:  #EEEEEE;
+    font-weight: bold;
+}

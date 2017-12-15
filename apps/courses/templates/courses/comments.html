@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Courses Comments</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'courses/css/main.css' %}">
+</head>
+<body>
+    <h2>Post your Comments !</h2>
+    <p><b>Course Name:</b> {{ course.name }} </p>
+    <p><b>Description:</b> {{ course.description.content }}</p>
+    <br>
+    <div class="commentCourse">
+        <form action="/courses/comment/{{ course.id }}/add" method="post">
+            {% csrf_token %}
+            Your Name: <input type="text" name="ur_name">
+            {% if errors.ur_name %}
+            <p class="err">{{ errors.ur_name }}</p>
+            {% endif %}
+            <br>
+            Comments:<textarea name="comment_text"></textarea>
+            {% if errors.comment_text %}
+            <p class="err">{{ errors.comment_text }}</p>
+            {% endif %}
+            <br>
+            <button id="post_btn">Post</button>
+        </form>
+        <a href="/"> Go Back </a>
+    </div>
+    <h3> Comments :</h3>
+    {% for comment in comments %}
+    <div class="posted_cmt">
+        <p id="cmt_from">{{ comment.name }}</p>
+        <p id="user_cmt">{{ comment.content }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
